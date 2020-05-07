@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 import * as ColorPalette from '../../../utils/ColorPalette';
 import * as DateUtils from '../../../utils/DateUtils';
+import Strings from '../../../localization/Strings';
 import Column from '../../../components/base/Column';
 import Row from '../../../components/base/Row';
 import Divider from '../../../components/base/Divider';
@@ -17,14 +18,15 @@ const TransactionDetailScreen = ({navigation}) => {
     <Column style={styles.mainContainerStyle}>
       <Row style={styles.firstRowStyle}>
         <Text style={styles.transactionIdStyle}>
-          ID Transaksi: #{transaction.id}
+          {Strings['TransactionDetail.TransactionId']}
+          {transaction.id}
         </Text>
         <CopyButton />
       </Row>
       <Row style={styles.secondRowStyle}>
-        <CapitalText text="DETAIL TRANSAKSI" />
+        <CapitalText text={Strings['TransactionDetail.DetailTitle']} />
         <TouchableOpacity onPress={() => navigation.pop()}>
-          <Text style={styles.closeButtonStyle}>Tutup</Text>
+          <Text style={styles.closeButtonStyle}>{Strings['Common.Close']}</Text>
         </TouchableOpacity>
       </Row>
       <Divider />
@@ -35,17 +37,17 @@ const TransactionDetailScreen = ({navigation}) => {
       <TwoRowTexts
         firstTitle={transaction.beneficiary_name}
         firstContent={transaction.account_number}
-        secondTitle="Nominal"
+        secondTitle={Strings['TransactionDetail.AmountTitle']}
         secondContent={transaction.amount}
       />
       <TwoRowTexts
-        firstTitle="Berita Transfer"
+        firstTitle={Strings['TransactionDetail.RemarkTitle']}
         firstContent={transaction.remark ? transaction.remark : '-'}
-        secondTitle="Kode Unik"
+        secondTitle={Strings['TransactionDetail.UniqueCode']}
         secondContent={transaction.unique_code}
       />
       <TwoRowTexts
-        firstTitle="Waktu Dibuat"
+        firstTitle={Strings['TransactionDetail.CreatedDate']}
         firstContent={DateUtils.format(transaction.created_at)}
       />
     </Column>
@@ -54,7 +56,7 @@ const TransactionDetailScreen = ({navigation}) => {
 
 TransactionDetailScreen.navigationOptions = () => {
   return {
-    title: 'Detail Transaksi',
+    title: Strings['TransactionDetail.Title'],
     headerTintColor: 'white',
   };
 };
@@ -74,13 +76,6 @@ const styles = StyleSheet.create({
   transactionIdStyle: {
     fontSize: 16,
     fontWeight: 'bold',
-  },
-  iconCopyStyle: {
-    transform: [{rotateY: '180deg'}],
-  },
-  detailTransaksiStyle: {
-    fontWeight: 'bold',
-    fontSize: 18,
   },
   closeButtonStyle: {
     color: ColorPalette.COLOR_PRIMARY,

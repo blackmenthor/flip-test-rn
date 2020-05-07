@@ -1,0 +1,28 @@
+let Strings = {
+  'App.Title': 'Flip Mock Application',
+  'Common.Copy': 'ID Transaksi berhasil disalin!',
+  'Common.IDR': 'Rp.',
+  'Common.DefaultEmptyText': 'Tidak ada data tersedia',
+  'Common.Retry': 'Coba Lagi',
+  'Common.Close': 'Tutup',
+  'TransactionDetail.Title': 'Detail Transaksi',
+  'TransactionDetail.TransactionId': 'ID Transaksi: #',
+  'TransactionDetail.DetailTitle': 'Detail Transaksi',
+  'TransactionDetail.AmountTitle': 'Nominal',
+  'TransactionDetail.RemarkTitle': 'Berita Transfer',
+  'TransactionDetail.UniqueCode': 'Kode Unik',
+  'TransactionDetail.CreatedDate': 'Waktu Dibuat',
+  'TransactionSort.DefaultLabel': 'URUTKAN',
+  'TransactionSort.AtoZLabel': 'Nama A-Z',
+  'TransactionSort.ZtoALabel': 'Nama Z-A',
+  'TransactionSort.DateDescLabel': 'Tanggal Terbaru',
+  'TransactionSort.DateAscLabel': 'Tanggal Terlama',
+  'SearchBar.Placeholder': 'Cari nama, bank, atau nominal.',
+  'TransactionStatus.SuccessTitle': 'Berhasil',
+  'TransactionStatus.PendingTitle': 'Pengecekan',
+  'TransactionStatus.FailedTitle': 'Gagal',
+  'TransactionStatus.CancelledTitle': 'Batal',
+  'TransactionList.Title': 'Catatan Transaksi',
+};
+
+export default Strings;

@@ -4,7 +4,6 @@ import * as ScreenState from '../utils/ScreenState';
 import * as SortState from './transactions/TransactionSortState';
 import * as Utils from '../utils/UtilsFunction';
 import * as DateUtils from '../utils/DateUtils';
-import * as ColorPalette from '../utils/ColorPalette';
 import * as Converter from './transactions/TransactionStatusConverter';
 
 const TransactionsReducer = (state, action) => {
@@ -22,6 +21,9 @@ const TransactionsReducer = (state, action) => {
         transactionListScreenState: ScreenState.FAILED(action.payload),
       };
     case 'ChangeSortState':
+      if (state.transactionListScreenState !== ScreenState.SUCCESS) {
+        return state; // we don't want to sort if data haven't been fetched yet
+      }
       return {
         ...state,
         transactionListSortState: action.payload,
@@ -63,14 +65,15 @@ const getTransactions = dispatch => {
     try {
       const response = await FlipApi.get('/frontend-test');
 
-      // const correctData = []; //TODO: TELL FLIP ABOUT THIS ERROR
-      // for (var prop in response.data) {
-      //   correctData.push(prop);
-      // }
+      // TODO: ASK FLIP IF THE API WAS CORRECT FOR SENDING MAP INSTEAD OF LIST
+      const correctData = [];
+      for (var prop in response.data) {
+        correctData.push(response.data[prop]);
+      }
 
       // Process data and add color & parsed time AOT
       const processedData = [];
-      response.data.forEach(datum => {
+      correctData.forEach(datum => {
         processedData.push({
           ...datum,
           itemColor: Converter.convert(datum.status),

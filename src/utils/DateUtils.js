@@ -1,3 +1,11 @@
+import * as Constants from './Constants';
+
+/**
+ * A function to compare two Date object.
+ *
+ * @requires {Date} a
+ * @requires {Date} b
+ */
 export const compare = (a, b) => {
   if (a === b) {
     return 0;
@@ -7,7 +15,13 @@ export const compare = (a, b) => {
   return 1;
 };
 
-// parses with format YYYY-mm-dd hh:MM:ss
+/**
+ * A function to parse a String to be a Date object.
+ * the String supplied had to be with this format: 'YYYY-mm-dd hh:MM:ss'
+ *
+ * @requires {Date} a
+ * @requires {Date} b
+ */
 export const parse = input => {
   let firstPart = input.split('-');
   let secondPart = firstPart[2].split(' ');
@@ -25,24 +39,16 @@ export const parse = input => {
   );
 };
 
-let monthNames = [
-  'Januari',
-  'Februari',
-  'Maret',
-  'April',
-  'Mei',
-  'Juni',
-  'Juli',
-  'Agustus',
-  'September',
-  'Oktober',
-  'November',
-  'Desember',
-];
-
+/**
+ * A function to format a Date object to a formatted date String.
+ * Format: 'DD mm YYYY'
+ *
+ * @requires {Date} a
+ * @requires {Date} b
+ */
 export const format = input => {
   const year = input.getFullYear();
   const month = input.getMonth() + 1;
   const day = input.getDate();
-  return `${day} ${monthNames[month]} ${year}`;
+  return `${day} ${Constants.monthNames[month]} ${year}`;
 };

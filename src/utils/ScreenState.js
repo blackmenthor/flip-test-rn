@@ -1,3 +1,7 @@
+/**
+ * This file responsibles to define General Screen state to implement across scenes in the code base.
+ */
+
 export const LOADING = {state: LOADING_STATE};
 export const SUCCESS = {state: SUCCESS_STATE};
 export const FAILED = message => {

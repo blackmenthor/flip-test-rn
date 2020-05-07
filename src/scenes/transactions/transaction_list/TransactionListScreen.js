@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {View, StyleSheet} from 'react-native';
+import Strings from '../../../localization/Strings';
 import SearchBar from './components/SearchBar';
 import TransactionItemView from './components/TransactionItemView';
 import LoadableListView from '../../../components/LoadableListView';
@@ -72,7 +73,7 @@ const TransactionListScreen = ({navigation}) => {
 
 TransactionListScreen.navigationOptions = () => {
   return {
-    title: 'Catatan Transaksi',
+    title: Strings['TransactionList.Title'],
     headerTintColor: 'white',
   };
 };

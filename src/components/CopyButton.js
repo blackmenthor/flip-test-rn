@@ -1,10 +1,19 @@
 import React from 'react';
 import {TouchableOpacity, StyleSheet} from 'react-native';
 import * as ColorPalette from '../utils/ColorPalette';
+import Strings from '../localization/Strings';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Clipboard from '@react-native-community/clipboard';
 import Snackbar from 'react-native-snackbar';
 
+/**
+ * A clickable Icon that would copy the supplied parameters to device's clipboard.
+ * @requires {String} textToCopy
+ *
+ * Default configuration:
+ * - transform: [{rotateY: '180deg'}] (Copy icon will be mirrored)
+ * - Icon's horizontal margin: 8
+ */
 const CopyButton = ({textToCopy}) => {
   const copyToClipBoard = text => Clipboard.setString(text);
 
@@ -13,7 +22,7 @@ const CopyButton = ({textToCopy}) => {
       onPress={() => {
         copyToClipBoard(textToCopy);
         Snackbar.show({
-          text: 'ID Transaksi berhasil disalin!',
+          text: Strings['Common.Copy'],
           duration: Snackbar.LENGTH_SHORT,
         });
       }}>

@@ -5,6 +5,7 @@ import TransactionListScreen from './src/scenes/transactions/transaction_list/Tr
 import TransactionDetailScreen from './src/scenes/transactions/transaction_detail/TranscationDetailScreen';
 import {Provider} from './src/context/TransactionsContext';
 import * as ColorPalette from './src/utils/ColorPalette';
+import Strings from './src/localization/Strings';
 
 const navigator = createStackNavigator(
   {
@@ -14,7 +15,7 @@ const navigator = createStackNavigator(
   {
     initialRouteName: 'TransactionList',
     defaultNavigationOptions: {
-      title: 'Flip Mock Application',
+      title: Strings['App.Title'],
       headerStyle: {
         backgroundColor: ColorPalette.COLOR_PRIMARY,
       },

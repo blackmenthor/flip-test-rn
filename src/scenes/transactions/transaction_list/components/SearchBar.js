@@ -1,10 +1,11 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import * as ColorPalette from '../../../../utils/ColorPalette';
+import Strings from '../../../../localization/Strings';
 import Row from '../../../../components/base/Row';
 import DefaultTextInput from '../../../../components/base/DefaultTextInput';
 import FilterText from './FilterText';
-import * as ColorPalette from '../../../../utils/ColorPalette';
 
 const SearchBar = ({onTermChanged, onFilterTap, currentFilter}) => {
   return (
@@ -15,7 +16,7 @@ const SearchBar = ({onTermChanged, onFilterTap, currentFilter}) => {
         color={ColorPalette.SOFT_GREY}
       />
       <DefaultTextInput
-        placeholder="Cari nama, bank, atau nominal."
+        placeholder={Strings['SearchBar.Placeholder']}
         onChangeText={onTermChanged}
       />
       <FilterText text={currentFilter} onFilterTap={onFilterTap} />
@@ -29,6 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     marginHorizontal: 8,
     paddingHorizontal: 8,
+    marginTop: 8,
   },
   iconStyle: {
     fontSize: 24,

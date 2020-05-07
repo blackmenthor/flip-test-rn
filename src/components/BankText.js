@@ -4,6 +4,15 @@ import Row from './base/Row';
 import CapitalText from './base/CapitalText';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
+/**
+ * A Text widget template to show two bank accounts (sender, and beneficiary).
+ * @requires {String} senderBank
+ * @requires {String} beneficiaryBank
+ *
+ * Default configuration:
+ * - fontWeight: bold
+ * - Icon's margin: 4
+ */
 const BankText = ({senderBank, beneficiaryBank}) => {
   return (
     <Row>

@@ -1,26 +1,31 @@
 import React from 'react';
-import {Text, StyleSheet} from 'react-native';
-import DefaultText from '../../../../components/base/DefaultText';
+import {StyleSheet} from 'react-native';
 import * as ColorPalette from '../../../../utils/ColorPalette';
+import Strings from '../../../../localization/Strings';
+import DefaultText from '../../../../components/base/DefaultText';
 
 const StatusBadge = ({status}) => {
   var title;
   var style;
   switch (status) {
     case 'SUCCESS':
-      title = 'Berhasil';
+      title = Strings['TransactionStatus.SuccessTitle'];
       style = styles.successStyle;
       break;
     case 'PENDING':
-      title = 'Pengecekan';
+      title = Strings['TransactionStatus.PendingTitle'];
       style = styles.pendingStyle;
       break;
     case 'FAILED':
-      title = 'Gagal';
+      title = Strings['TransactionStatus.FailedTitle'];
       style = styles.failedStyle;
       break;
+    case 'CANCELLED':
+      title = Strings['TransactionStatus.CancelledTitle'];
+      style = styles.cancelledStyle;
+      break;
     default:
-      title = 'Pengecekan';
+      title = Strings['TransactionStatus.PendingTitle'];
       style = styles.pendingStyle;
       break;
   }
@@ -41,6 +46,10 @@ const styles = StyleSheet.create({
   },
   successStyle: {
     backgroundColor: ColorPalette.SUCCESS,
+    color: 'white',
+  },
+  cancelledStyle: {
+    backgroundColor: ColorPalette.DARK_GREY,
     color: 'white',
   },
   failedStyle: {

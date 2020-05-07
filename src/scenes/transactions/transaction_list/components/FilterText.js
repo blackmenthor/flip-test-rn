@@ -1,9 +1,10 @@
 import React from 'react';
 import {TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import * as ColorPalette from '../../../../utils/ColorPalette';
+import Strings from '../../../../localization/Strings';
 import Row from '../../../../components/base/Row';
 import DefaultText from '../../../../components/base/DefaultText';
-import * as ColorPalette from '../../../../utils/ColorPalette';
 
 const FilterText = ({text, onFilterTap}) => {
   return (
@@ -17,7 +18,7 @@ const FilterText = ({text, onFilterTap}) => {
 };
 
 FilterText.defaultProps = {
-  text: 'URUTKAN',
+  text: Strings['TransactionSort.DefaultLabel'],
 };
 
 const styles = StyleSheet.create({

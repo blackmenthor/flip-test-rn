@@ -2,6 +2,21 @@ import React from 'react';
 import {TextInput, StyleSheet} from 'react-native';
 import * as ColorPalette from '../../utils/ColorPalette';
 
+/**
+ * A TextInput with default styling.
+ * @requires {Callback} onChangeText
+ * @requires {String} placeholder
+ * @param {bool} autoCorrect
+ * @param {String} autoCapitalize
+ * @param {Style} style (if additional styling is needed).
+ *
+ * Default configuration:
+ * - fontSize: 15
+ * - flex: 1
+ * - autoCorrect: false
+ * - autoCapitalize: 'none'
+ * - placeholderTextColor: SOFT_GREY
+ */
 const DefaultTextInput = ({
   placeholder,
   onChangeText,

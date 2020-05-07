@@ -1,6 +1,17 @@
 import React from 'react';
 import Modal from 'react-native-modal';
 
+/**
+ * A Modal with default configuration.
+ * @requires {Callback} onClose
+ * @requires {boolean} isVisible
+ * @requires {Widget} children
+ *
+ * Default configuration:
+ * - animationIn: slideInUp
+ * - animationOut: slideOutDown
+ * - transparent: true
+ */
 const DefaultModal = ({onClose, isVisible, children}) => {
   return (
     <Modal
