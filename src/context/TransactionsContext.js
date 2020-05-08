@@ -33,7 +33,7 @@ const TransactionsReducer = (state, action) => {
         ...state,
         transactionListSortState: action.payload,
         transactions: state.transactions.sort(action.payload.sortFunction),
-        filteredTransactions: state.filteredTransactions.sort(
+        filteredTransactions: state.filteredTransactions == null ? null : state.filteredTransactions.sort(
           action.payload.sortFunction,
         ),
       };
