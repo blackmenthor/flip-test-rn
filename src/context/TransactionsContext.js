@@ -42,7 +42,11 @@ const TransactionsReducer = (state, action) => {
         return state; // we don't want to search if data haven't been fetched yet
       }
       const query = action.payload.query;
-      const result = state.transactions.filter(item => {
+      const source =
+        state.filteredTransactions == null
+          ? state.transactions
+          : state.filteredTransactions;
+      const result = source.filter(item => {
         const bool = Utils.searchForOccurence({
           criterias: [
             item.beneficiary_name,
