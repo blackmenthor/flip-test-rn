@@ -17,14 +17,17 @@ const TransactionDetailScreen = ({navigation}) => {
   return (
     <Column style={styles.mainContainerStyle}>
       <Row style={styles.firstRowStyle}>
-        <Text style={styles.transactionIdStyle}>
+        <Text style={styles.titleStyle}>
           {Strings['TransactionDetail.TransactionId']}
           {transaction.id}
         </Text>
-        <CopyButton />
+        <CopyButton textToCopy={transaction.id} />
       </Row>
       <Row style={styles.secondRowStyle}>
-        <CapitalText text={Strings['TransactionDetail.DetailTitle']} />
+        <CapitalText
+          style={styles.titleStyle}
+          text={Strings['TransactionDetail.DetailTitle']}
+        />
         <TouchableOpacity onPress={() => navigation.pop()}>
           <Text style={styles.closeButtonStyle}>{Strings['Common.Close']}</Text>
         </TouchableOpacity>
@@ -39,6 +42,7 @@ const TransactionDetailScreen = ({navigation}) => {
         firstContent={transaction.account_number}
         secondTitle={Strings['TransactionDetail.AmountTitle']}
         secondContent={transaction.amount}
+        secondRowIsCurrency={true}
       />
       <TwoRowTexts
         firstTitle={Strings['TransactionDetail.RemarkTitle']}
@@ -73,7 +77,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     justifyContent: 'space-between',
   },
-  transactionIdStyle: {
+  titleStyle: {
     fontSize: 16,
     fontWeight: 'bold',
   },

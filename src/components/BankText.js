@@ -15,7 +15,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
  */
 const BankText = ({senderBank, beneficiaryBank}) => {
   return (
-    <Row>
+    <Row style={styles.rowStyle}>
       <CapitalText style={styles.textStyle} text={senderBank.toUpperCase()} />
       <Icon name="arrow-right" size={18} style={styles.iconStyle} />
       <CapitalText
@@ -27,6 +27,10 @@ const BankText = ({senderBank, beneficiaryBank}) => {
 };
 
 const styles = StyleSheet.create({
+  rowStyle: {
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+  },
   textStyle: {
     fontWeight: 'bold',
   },

@@ -2,29 +2,48 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import CapitalText from '../../../../components/base/CapitalText';
 import DefaultText from '../../../../components/base/DefaultText';
+import CurrencyText from '../../../../components/CurrencyText';
 import Row from '../../../../components/base/Row';
 import Column from '../../../../components/base/Column';
 
 const TwoRowTexts = ({
   firstTitle,
   firstContent,
+  firstRowIsCurrency,
   secondTitle,
   secondContent,
+  secondRowIsCurrency,
 }) => {
   return (
     <Row style={styles.mainContainerStyle}>
       <Column style={styles.leftContainerStyle}>
         <CapitalText style={styles.headerStyle} text={firstTitle} />
-        <DefaultText style={styles.subHeaderStyle} text={firstContent} />
+        {firstRowIsCurrency ? (
+          <CurrencyText amount={firstContent} style={styles.subHeaderStyle} />
+        ) : (
+          <DefaultText style={styles.subHeaderStyle} text={firstContent} />
+        )}
       </Column>
       {!secondTitle && !secondContent ? null : (
         <Column style={styles.rightContainerStyle}>
           <CapitalText style={styles.headerStyle} text={secondTitle} />
-          <DefaultText style={styles.subHeaderStyle} text={secondContent} />
+          {secondRowIsCurrency ? (
+            <CurrencyText
+              amount={secondContent}
+              style={styles.subHeaderStyle}
+            />
+          ) : (
+            <DefaultText style={styles.subHeaderStyle} text={secondContent} />
+          )}
         </Column>
       )}
     </Row>
   );
+};
+
+TwoRowTexts.defaultProps = {
+  firstRowIsCurrency: false,
+  secondRowIsCurrency: false,
 };
 
 const styles = StyleSheet.create({

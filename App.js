@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import TransactionListScreen from './src/scenes/transactions/transaction_list/TransactionListScreen';
-import TransactionDetailScreen from './src/scenes/transactions/transaction_detail/TranscationDetailScreen';
+import TransactionDetailScreen from './src/scenes/transactions/transaction_detail/TransactionDetailScreen';
 import {Provider} from './src/context/TransactionsContext';
 import * as ColorPalette from './src/utils/ColorPalette';
 import Strings from './src/localization/Strings';

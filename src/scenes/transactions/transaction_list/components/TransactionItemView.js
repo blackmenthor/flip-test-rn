@@ -27,7 +27,10 @@ const TransactionItemView = ({transaction, onClick}) => {
             <Text>{`${DateUtils.format(transaction.created_at)}`}</Text>
           </Row>
         </Column>
-        <StatusBadge status={transaction.status} />
+        <StatusBadge
+          status={transaction.status}
+          additionalStyle={styles.statusStyle}
+        />
       </Row>
     </Ripple>
   );
@@ -45,8 +48,12 @@ const styles = (itemColor = ColorPalette.COLOR_PRIMARY) =>
       borderLeftWidth: 4,
       borderRadius: 4,
     },
+    statusStyle: {
+      flex: 1,
+    },
     leftContentContainerStyle: {
       alignItems: 'flex-start',
+      flex: 1,
     },
     dotIconStyle: {
       marginHorizontal: 4,

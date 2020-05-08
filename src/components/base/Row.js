@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
   rowStyle: {
     flexDirection: 'row',
     alignItems: 'center',
+    flexWrap: 'wrap',
   },
 });
 

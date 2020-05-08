@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   sortStyle: {
     fontWeight: 'bold',
     color: ColorPalette.COLOR_PRIMARY,
+    fontSize: 13,
   },
 });
 

@@ -4,7 +4,7 @@ import * as ColorPalette from '../../../../utils/ColorPalette';
 import Strings from '../../../../localization/Strings';
 import DefaultText from '../../../../components/base/DefaultText';
 
-const StatusBadge = ({status}) => {
+const StatusBadge = ({status, additionalStyle}) => {
   var title;
   var style;
   switch (status) {
@@ -29,7 +29,12 @@ const StatusBadge = ({status}) => {
       style = styles.pendingStyle;
       break;
   }
-  return <DefaultText style={[styles.statusTextStyle, style]} text={title} />;
+  return (
+    <DefaultText
+      style={[styles.statusTextStyle, style, additionalStyle]}
+      text={title}
+    />
+  );
 };
 
 const styles = StyleSheet.create({

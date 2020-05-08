@@ -8,6 +8,11 @@ import * as Converter from './transactions/TransactionStatusConverter';
 
 const TransactionsReducer = (state, action) => {
   switch (action.type) {
+    case 'StartFetchingTransactions':
+      return {
+        ...state,
+        transactionListScreenState: ScreenState.LOADING,
+      };
     case 'GotTransactions':
       return {
         ...state,
@@ -63,6 +68,8 @@ const TransactionsReducer = (state, action) => {
 const getTransactions = dispatch => {
   return async () => {
     try {
+      dispatch({type: 'StartFetchingTransactions'});
+
       const response = await FlipApi.get('/frontend-test');
 
       // TODO: ASK FLIP IF THE API WAS CORRECT FOR SENDING MAP INSTEAD OF LIST
